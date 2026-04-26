@@ -1921,13 +1921,8 @@ const analytics = {
   }
 };
 function trackDownload(source) {
-  analytics.track('apk_download_click', { source });
-  const link = document.createElement('a');
-  link.href = 'f1social-v1.0.apk';
-  link.download = 'F1Social.apk';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  try { analytics.track('apk_download_click', { source }); } catch(e) {}
+  window.location.href = 'f1social-v1.0.apk';
 }
 
 /* ============================================================
