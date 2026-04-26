@@ -1968,7 +1968,12 @@
       <!-- Left: Copy -->
       <div class="hero-left">
         <div class="hero-eyebrow">
-          <img src="formula1.png" alt="F1Social Logo" style="height:48px;width:auto;object-fit:contain;margin-bottom:8px;display:block;" />
+          <div id="hero-logo-wrap" style="margin-bottom:16px;">
+            <img src="formula1.png" alt="F1Social Logo" id="hero-logo" style="height:80px;width:auto;object-fit:contain;display:block;transition:transform 0.1s linear;" />
+            <div class="nav-logo" style="margin-top:8px;font-size:28px;">
+              <span class="logo-f1">F1</span>SOCIAL
+            </div>
+          </div>
           <span class="badge">🏎️ Versión 1.0.0</span>
           <span class="badge" style="background:rgba(0,144,255,0.12);color:var(--accent-blue);border-color:rgba(0,144,255,0.3);">Android &amp; iOS</span>
         </div>
@@ -2203,6 +2208,7 @@
   <div class="container">
     <div class="cta-box reveal">
       <div class="cta-left">
+        <img src="formula1.png" alt="F1Social" style="height:56px;width:auto;object-fit:contain;margin-bottom:16px;display:block;" />
         <h2>¿LISTO PARA<br><span class="highlight">UNIRTE</span>?</h2>
         <p>Descarga F1Social gratis, crea tu cuenta en segundos y comienza a vivir la Fórmula 1 de una forma completamente nueva. Sin suscripciones, sin pagos ocultos.</p>
       </div>
@@ -2904,7 +2910,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 /* ============================================================
-   HEADER SCROLL
+   HEADER SCROLL + LOGO PARALLAX
    ============================================================ */
 window.addEventListener('scroll', () => {
   const header = document.getElementById('header');
@@ -2913,6 +2919,17 @@ window.addEventListener('scroll', () => {
   // Scroll progress
   const scrollPct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
   document.getElementById('scroll-progress').style.width = scrollPct + '%';
+
+  // Logo parallax — se acerca al hacer scroll, regresa al subir
+  const heroLogo = document.getElementById('hero-logo');
+  if (heroLogo) {
+    const heroSection = document.getElementById('hero');
+    const heroHeight = heroSection ? heroSection.offsetHeight : window.innerHeight;
+    const progress = Math.min(window.scrollY / heroHeight, 1);
+    const scale = 1 + progress * 0.5; // crece hasta 1.5x
+    heroLogo.style.transform = `scale(${scale})`;
+    heroLogo.style.opacity = 1 - progress * 0.3; // se desvanece levemente
+  }
 });
 
 /* ============================================================
