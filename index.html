@@ -900,6 +900,214 @@
     }
 
     /* ============================================================
+       GALERÍA DE CAPTURAS
+       ============================================================ */
+    #gallery {
+      padding: 100px 0;
+      position: relative;
+    }
+    #gallery::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--divider), transparent);
+    }
+    .gallery-header { text-align: center; margin-bottom: 48px; }
+    .gallery-header .section-label { justify-content: center; margin-bottom: 16px; }
+    .gallery-header .section-label::before { display: none; }
+    .gallery-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .gallery-tab {
+      padding: 8px 20px;
+      border-radius: 100px;
+      border: 1px solid var(--divider);
+      background: transparent;
+      color: var(--text-muted);
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .gallery-tab:hover { border-color: var(--text-secondary); color: var(--text-primary); }
+    .gallery-tab.active {
+      background: var(--accent-red);
+      border-color: var(--accent-red);
+      color: #fff;
+    }
+    .gallery-group { display: none; }
+    .gallery-group.active { display: block; }
+    .gallery-group-title {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .gallery-group-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .gallery-card {
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .gallery-card:hover { transform: translateY(-4px); }
+    .gallery-card:hover .gallery-phone { border-color: rgba(232,0,45,0.5); box-shadow: 0 16px 40px rgba(232,0,45,0.2); }
+    .gallery-phone {
+      width: 100%;
+      aspect-ratio: 9/19;
+      border-radius: 20px;
+      border: 2px solid var(--divider);
+      overflow: hidden;
+      background: var(--bg-card);
+      transition: var(--transition);
+      position: relative;
+    }
+    .gallery-phone img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-num {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: rgba(0,0,0,0.7);
+      color: var(--accent-red);
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 4px;
+      backdrop-filter: blur(4px);
+    }
+    .gallery-label {
+      margin-top: 8px;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.4;
+      padding: 0 4px;
+    }
+    /* Lightbox */
+    #gallery-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9000;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(8px);
+    }
+    #gallery-lightbox.open { display: flex; }
+    .glb-inner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      max-height: 90vh;
+    }
+    .glb-phone {
+      width: 280px;
+      aspect-ratio: 9/19;
+      border-radius: 32px;
+      border: 2px solid rgba(255,255,255,0.15);
+      overflow: hidden;
+      background: var(--bg-card);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+    }
+    .glb-phone img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .glb-info {
+      max-width: 260px;
+      color: var(--text-primary);
+    }
+    .glb-num {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--accent-red);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .glb-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .glb-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .glb-nav {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .glb-btn {
+      padding: 8px 18px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--divider);
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .glb-btn:hover { border-color: var(--accent-red); color: var(--accent-red); }
+    .glb-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      font-size: 24px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: color var(--transition);
+    }
+    .glb-close:hover { color: var(--accent-red); }
+    @media (max-width: 700px) {
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+      .glb-inner { flex-direction: column; gap: 16px; }
+      .glb-phone { width: 200px; }
+      .glb-info { max-width: 90vw; text-align: center; }
+      .glb-nav { justify-content: center; }
+    }
+
+    /* ============================================================
        MANUAL TÉCNICO
        ============================================================ */
     #manual {
@@ -1913,6 +2121,122 @@
 </section>
 
 <!-- ============================================================
+     GALERÍA DE CAPTURAS
+     ============================================================ -->
+<section id="gallery">
+  <div class="container">
+    <div class="gallery-header reveal">
+      <div class="section-label">Capturas de Pantalla</div>
+      <h2 class="section-title" style="margin-top:12px">LA APP POR <span class="highlight">DENTRO</span></h2>
+      <p style="color:var(--text-secondary);max-width:560px;margin:16px auto 0;font-size:1rem">
+        37 pantallas que cubren el flujo completo — desde el splash hasta el panel de administración.
+      </p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="gallery-tabs">
+      <button class="gallery-tab active" onclick="switchTab('onboarding', this)">🚀 Onboarding</button>
+      <button class="gallery-tab" onclick="switchTab('feed', this)">📱 Feed & Contenido</button>
+      <button class="gallery-tab" onclick="switchTab('comunidades', this)">🏎️ Comunidades</button>
+      <button class="gallery-tab" onclick="switchTab('estadisticas', this)">📊 Estadísticas</button>
+      <button class="gallery-tab" onclick="switchTab('perfil', this)">👤 Perfil & Admin</button>
+    </div>
+
+    <!-- Onboarding: 1–14 -->
+    <div class="gallery-group active" id="tab-onboarding">
+      <div class="gallery-group-title">Pantallas 1–14 · Onboarding & Registro</div>
+      <div class="gallery-grid">
+        <div class="gallery-card" onclick="openLightbox(1)"><div class="gallery-phone"><span class="gallery-num">01</span><img src="cap/1.png" alt="Splash F1Social" loading="lazy"/></div><div class="gallery-label">Splash Screen</div></div>
+        <div class="gallery-card" onclick="openLightbox(2)"><div class="gallery-phone"><span class="gallery-num">02</span><img src="cap/2.png" alt="Coche acercándose" loading="lazy"/></div><div class="gallery-label">Animación de entrada</div></div>
+        <div class="gallery-card" onclick="openLightbox(3)"><div class="gallery-phone"><span class="gallery-num">03</span><img src="cap/3.png" alt="Welcome screen" loading="lazy"/></div><div class="gallery-label">Welcome Screen</div></div>
+        <div class="gallery-card" onclick="openLightbox(4)"><div class="gallery-phone"><span class="gallery-num">04</span><img src="cap/4.png" alt="Login" loading="lazy"/></div><div class="gallery-label">Iniciar Sesión</div></div>
+        <div class="gallery-card" onclick="openLightbox(5)"><div class="gallery-phone"><span class="gallery-num">05</span><img src="cap/5.png" alt="Registro" loading="lazy"/></div><div class="gallery-label">Crear Cuenta</div></div>
+        <div class="gallery-card" onclick="openLightbox(6)"><div class="gallery-phone"><span class="gallery-num">06</span><img src="cap/6.png" alt="Términos" loading="lazy"/></div><div class="gallery-label">Términos & Privacidad</div></div>
+        <div class="gallery-card" onclick="openLightbox(7)"><div class="gallery-phone"><span class="gallery-num">07</span><img src="cap/7.png" alt="Perfil" loading="lazy"/></div><div class="gallery-label">Tu Perfil</div></div>
+        <div class="gallery-card" onclick="openLightbox(8)"><div class="gallery-phone"><span class="gallery-num">08</span><img src="cap/8.png" alt="Piloto favorito" loading="lazy"/></div><div class="gallery-label">Elige tu Piloto</div></div>
+        <div class="gallery-card" onclick="openLightbox(9)"><div class="gallery-phone"><span class="gallery-num">09</span><img src="cap/9.png" alt="Escudería" loading="lazy"/></div><div class="gallery-label">Elige tu Escudería</div></div>
+        <div class="gallery-card" onclick="openLightbox(10)"><div class="gallery-phone"><span class="gallery-num">10</span><img src="cap/10.png" alt="Circuito favorito" loading="lazy"/></div><div class="gallery-label">Circuito Favorito</div></div>
+        <div class="gallery-card" onclick="openLightbox(11)"><div class="gallery-phone"><span class="gallery-num">11</span><img src="cap/11.png" alt="Contenido" loading="lazy"/></div><div class="gallery-label">Tipo de Contenido</div></div>
+        <div class="gallery-card" onclick="openLightbox(12)"><div class="gallery-phone"><span class="gallery-num">12</span><img src="cap/12.png" alt="Era F1" loading="lazy"/></div><div class="gallery-label">Tu Era F1</div></div>
+        <div class="gallery-card" onclick="openLightbox(13)"><div class="gallery-phone"><span class="gallery-num">13</span><img src="cap/13.png" alt="Notificaciones" loading="lazy"/></div><div class="gallery-label">Notificaciones</div></div>
+        <div class="gallery-card" onclick="openLightbox(14)"><div class="gallery-phone"><span class="gallery-num">14</span><img src="cap/14.png" alt="Registro completo" loading="lazy"/></div><div class="gallery-label">¡Registro Completo!</div></div>
+      </div>
+    </div>
+
+    <!-- Feed: 15–17 -->
+    <div class="gallery-group" id="tab-feed">
+      <div class="gallery-group-title">Pantallas 15–17 · Feed & Publicaciones</div>
+      <div class="gallery-grid">
+        <div class="gallery-card" onclick="openLightbox(15)"><div class="gallery-phone"><span class="gallery-num">15</span><img src="cap/15.png" alt="Feed" loading="lazy"/></div><div class="gallery-label">Feed Principal</div></div>
+        <div class="gallery-card" onclick="openLightbox(16)"><div class="gallery-phone"><span class="gallery-num">16</span><img src="cap/16.png" alt="Cámara" loading="lazy"/></div><div class="gallery-label">Subir Video / Foto</div></div>
+        <div class="gallery-card" onclick="openLightbox(17)"><div class="gallery-phone"><span class="gallery-num">17</span><img src="cap/17.png" alt="Publicación" loading="lazy"/></div><div class="gallery-label">Nueva Publicación</div></div>
+      </div>
+    </div>
+
+    <!-- Comunidades: 18–23 -->
+    <div class="gallery-group" id="tab-comunidades">
+      <div class="gallery-group-title">Pantallas 18–23 · Comunidades</div>
+      <div class="gallery-grid">
+        <div class="gallery-card" onclick="openLightbox(18)"><div class="gallery-phone"><span class="gallery-num">18</span><img src="cap/18.png" alt="Comunidades equipos" loading="lazy"/></div><div class="gallery-label">Equipos</div></div>
+        <div class="gallery-card" onclick="openLightbox(19)"><div class="gallery-phone"><span class="gallery-num">19</span><img src="cap/19.png" alt="Pilotos" loading="lazy"/></div><div class="gallery-label">Sección Pilotos</div></div>
+        <div class="gallery-card" onclick="openLightbox(20)"><div class="gallery-phone"><span class="gallery-num">20</span><img src="cap/20.png" alt="Fans" loading="lazy"/></div><div class="gallery-label">Sección Fans</div></div>
+        <div class="gallery-card" onclick="openLightbox(21)"><div class="gallery-phone"><span class="gallery-num">21</span><img src="cap/21.png" alt="Trivia" loading="lazy"/></div><div class="gallery-label">Trivia del Equipo</div></div>
+        <div class="gallery-card" onclick="openLightbox(22)"><div class="gallery-phone"><span class="gallery-num">22</span><img src="cap/22.png" alt="Novedades" loading="lazy"/></div><div class="gallery-label">Novedades</div></div>
+        <div class="gallery-card" onclick="openLightbox(23)"><div class="gallery-phone"><span class="gallery-num">23</span><img src="cap/23.png" alt="Ligas" loading="lazy"/></div><div class="gallery-label">Ligas</div></div>
+      </div>
+    </div>
+
+    <!-- Estadísticas: 24–30 -->
+    <div class="gallery-group" id="tab-estadisticas">
+      <div class="gallery-group-title">Pantallas 24–30 · Estadísticas F1</div>
+      <div class="gallery-grid">
+        <div class="gallery-card" onclick="openLightbox(24)"><div class="gallery-phone"><span class="gallery-num">24</span><img src="cap/24.png" alt="Pilotos stats" loading="lazy"/></div><div class="gallery-label">Pilotos</div></div>
+        <div class="gallery-card" onclick="openLightbox(25)"><div class="gallery-phone"><span class="gallery-num">25</span><img src="cap/25.png" alt="Piloto detalle" loading="lazy"/></div><div class="gallery-label">Detalle Piloto</div></div>
+        <div class="gallery-card" onclick="openLightbox(26)"><div class="gallery-phone"><span class="gallery-num">26</span><img src="cap/26.png" alt="Constructores" loading="lazy"/></div><div class="gallery-label">Constructores</div></div>
+        <div class="gallery-card" onclick="openLightbox(27)"><div class="gallery-phone"><span class="gallery-num">27</span><img src="cap/27.png" alt="Calendario" loading="lazy"/></div><div class="gallery-label">Calendario</div></div>
+        <div class="gallery-card" onclick="openLightbox(28)"><div class="gallery-phone"><span class="gallery-num">28</span><img src="cap/28.png" alt="Resultado carrera" loading="lazy"/></div><div class="gallery-label">Resultado Carrera</div></div>
+        <div class="gallery-card" onclick="openLightbox(29)"><div class="gallery-phone"><span class="gallery-num">29</span><img src="cap/29.png" alt="Gráfica puntos" loading="lazy"/></div><div class="gallery-label">Gráfica de Puntos</div></div>
+        <div class="gallery-card" onclick="openLightbox(30)"><div class="gallery-phone"><span class="gallery-num">30</span><img src="cap/30.png" alt="Comparador" loading="lazy"/></div><div class="gallery-label">Comparador</div></div>
+      </div>
+    </div>
+
+    <!-- Perfil & Admin: 31–37 -->
+    <div class="gallery-group" id="tab-perfil">
+      <div class="gallery-group-title">Pantallas 31–37 · Perfil & Panel Admin</div>
+      <div class="gallery-grid">
+        <div class="gallery-card" onclick="openLightbox(31)"><div class="gallery-phone"><span class="gallery-num">31</span><img src="cap/31.png" alt="Perfil" loading="lazy"/></div><div class="gallery-label">Mi Perfil</div></div>
+        <div class="gallery-card" onclick="openLightbox(32)"><div class="gallery-phone"><span class="gallery-num">32</span><img src="cap/32.png" alt="Editar perfil" loading="lazy"/></div><div class="gallery-label">Editar Perfil</div></div>
+        <div class="gallery-card" onclick="openLightbox(33)"><div class="gallery-phone"><span class="gallery-num">33</span><img src="cap/33.png" alt="Configuración" loading="lazy"/></div><div class="gallery-label">Configuración</div></div>
+        <div class="gallery-card" onclick="openLightbox(34)"><div class="gallery-phone"><span class="gallery-num">34</span><img src="cap/34.png" alt="Admin dashboard" loading="lazy"/></div><div class="gallery-label">Admin Dashboard</div></div>
+        <div class="gallery-card" onclick="openLightbox(35)"><div class="gallery-phone"><span class="gallery-num">35</span><img src="cap/35.png" alt="Admin pendientes" loading="lazy"/></div><div class="gallery-label">Admin Pendientes</div></div>
+        <div class="gallery-card" onclick="openLightbox(36)"><div class="gallery-phone"><span class="gallery-num">36</span><img src="cap/36.png" alt="Admin usuarios" loading="lazy"/></div><div class="gallery-label">Admin Usuarios</div></div>
+        <div class="gallery-card" onclick="openLightbox(37)"><div class="gallery-phone"><span class="gallery-num">37</span><img src="cap/37.png" alt="Admin contenido" loading="lazy"/></div><div class="gallery-label">Admin Contenido</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Lightbox galería -->
+<div id="gallery-lightbox" onclick="closeLightbox(event)">
+  <div class="glb-inner">
+    <span class="glb-close" onclick="closeLightboxBtn()">✕</span>
+    <div class="glb-phone">
+      <img id="glb-img" src="" alt="" />
+    </div>
+    <div class="glb-info">
+      <div class="glb-num" id="glb-num">PANTALLA 01 / 37</div>
+      <div class="glb-title" id="glb-title">Splash Screen</div>
+      <div class="glb-desc" id="glb-desc"></div>
+      <div class="glb-nav">
+        <button class="glb-btn" onclick="lightboxNav(-1)">← Anterior</button>
+        <button class="glb-btn" onclick="lightboxNav(1)">Siguiente →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
      MANUAL TÉCNICO
      ============================================================ -->
 <section id="manual">
@@ -2149,11 +2473,102 @@ if (dlCountEl) {
 function toggleFaq(questionEl) {
   const item = questionEl.closest('.faq-item');
   const isOpen = item.classList.contains('open');
-  // Cerrar todos
   document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-  // Abrir el clickeado si estaba cerrado
   if (!isOpen) item.classList.add('open');
 }
+
+/* ============================================================
+   GALERÍA — TABS
+   ============================================================ */
+function switchTab(name, btn) {
+  document.querySelectorAll('.gallery-group').forEach(g => g.classList.remove('active'));
+  document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  btn.classList.add('active');
+}
+
+/* ============================================================
+   GALERÍA — LIGHTBOX
+   ============================================================ */
+const screenData = [
+  { title: 'Splash Screen',          desc: 'Pantalla inicial con el logo de F1Social al abrir la app.' },
+  { title: 'Animación de Entrada',   desc: 'Splash screen con el coche de F1 acercándose en animación.' },
+  { title: 'Welcome Screen',         desc: 'Pantalla de bienvenida con botones para Iniciar Sesión o Crear Cuenta.' },
+  { title: 'Iniciar Sesión',         desc: 'Formulario de login con email y contraseña. Soporte para Google y Apple.' },
+  { title: 'Crear Cuenta',           desc: 'Formulario de registro con email y contraseña.' },
+  { title: 'Términos & Privacidad',  desc: 'Pantalla de aceptación de términos de uso y política de privacidad.' },
+  { title: 'Tu Perfil',              desc: 'Personalización: nombre, nombre de usuario, descripción y foto de perfil.' },
+  { title: 'Elige tu Piloto',        desc: 'Selección del piloto favorito para personalizar el feed.' },
+  { title: 'Elige tu Escudería',     desc: 'Selección de la escudería favorita para unirte a su comunidad.' },
+  { title: 'Circuito Favorito',      desc: 'Selección del Gran Premio o circuito favorito.' },
+  { title: 'Tipo de Contenido',      desc: '¿Qué contenido quieres ver más? Videos, telemetría, debates...' },
+  { title: 'Tu Era F1',              desc: '¿Con qué era de la Fórmula 1 te identificas más?' },
+  { title: 'Notificaciones',         desc: 'Configura qué notificaciones quieres recibir.' },
+  { title: '¡Registro Completo!',    desc: 'Pantalla de confirmación — tu cuenta está lista.' },
+  { title: 'Feed Principal',         desc: 'Feed de videos al estilo TikTok con contenido de la comunidad F1.' },
+  { title: 'Subir Video / Foto',     desc: 'Acceso a cámara para grabar video o tomar foto directamente.' },
+  { title: 'Nueva Publicación',      desc: 'Editor de publicación: descripción, música, lugar y más.' },
+  { title: 'Comunidades — Equipos',  desc: 'Vista de las 11 comunidades por escudería.' },
+  { title: 'Sección Pilotos',        desc: 'Dentro de una comunidad: posts y contenido de los pilotos del equipo.' },
+  { title: 'Sección Fans',           desc: 'Dentro de una comunidad: publicaciones de los fans del equipo.' },
+  { title: 'Trivia del Equipo',      desc: 'Preguntas de trivia exclusivas de la escudería para ganar XP.' },
+  { title: 'Novedades',              desc: 'Últimas noticias y novedades de la temporada.' },
+  { title: 'Ligas',                  desc: 'Tabla de clasificación semanal y global por puntos XP.' },
+  { title: 'Estadísticas — Pilotos', desc: 'Clasificación actual de pilotos en el campeonato.' },
+  { title: 'Detalle de Piloto',      desc: 'Estadísticas completas y descripción del piloto seleccionado.' },
+  { title: 'Constructores',          desc: 'Clasificación de constructores en el campeonato.' },
+  { title: 'Calendario',             desc: 'Calendario completo de Grandes Premios de la temporada.' },
+  { title: 'Resultado de Carrera',   desc: 'Posiciones finales y tiempos de una carrera ya disputada.' },
+  { title: 'Gráfica de Puntos',      desc: 'Evolución de puntos de pilotos a lo largo de la temporada.' },
+  { title: 'Comparador',             desc: 'Comparador de estadísticas entre dos pilotos.' },
+  { title: 'Mi Perfil',              desc: 'Perfil del usuario: XP, liga, publicaciones y estadísticas.' },
+  { title: 'Editar Perfil',          desc: 'Edición de nombre, foto, descripción y preferencias.' },
+  { title: 'Configuración',          desc: 'Menú lateral: Actividad, Cuenta, Preferencias y Notificaciones.' },
+  { title: 'Admin Dashboard',        desc: 'Panel de administración: estadísticas generales y acciones rápidas.' },
+  { title: 'Admin Pendientes',       desc: 'Contenido pendiente de moderación y aprobación.' },
+  { title: 'Admin Usuarios',         desc: 'Gestión de usuarios: Fans, Escuderías y Pilotos verificados.' },
+  { title: 'Admin Contenido',        desc: 'Moderación y gestión del contenido publicado en la plataforma.' },
+];
+
+let currentScreen = 1;
+
+function openLightbox(num) {
+  currentScreen = num;
+  updateLightbox();
+  document.getElementById('gallery-lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function updateLightbox() {
+  const data = screenData[currentScreen - 1];
+  document.getElementById('glb-img').src = 'cap/' + currentScreen + '.png';
+  document.getElementById('glb-img').alt = data.title;
+  document.getElementById('glb-num').textContent = 'PANTALLA ' + String(currentScreen).padStart(2,'0') + ' / 37';
+  document.getElementById('glb-title').textContent = data.title;
+  document.getElementById('glb-desc').textContent = data.desc;
+}
+
+function lightboxNav(dir) {
+  currentScreen = Math.max(1, Math.min(37, currentScreen + dir));
+  updateLightbox();
+}
+
+function closeLightboxBtn() {
+  document.getElementById('gallery-lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeLightbox(e) {
+  if (e.target === document.getElementById('gallery-lightbox')) closeLightboxBtn();
+}
+
+// Navegación con teclado
+document.addEventListener('keydown', (e) => {
+  if (!document.getElementById('gallery-lightbox').classList.contains('open')) return;
+  if (e.key === 'ArrowRight') lightboxNav(1);
+  if (e.key === 'ArrowLeft') lightboxNav(-1);
+  if (e.key === 'Escape') closeLightboxBtn();
+});
 
 /* ============================================================
    HEADER SCROLL
