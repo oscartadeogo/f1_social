@@ -1922,9 +1922,12 @@ const analytics = {
 };
 function trackDownload(source) {
   analytics.track('apk_download_click', { source });
-  // Aquí agrega el href real del APK, p.ej.:
-  // window.location.href = 'https://tu-servidor.com/f1social-v1.0.0.apk';
-  alert('🏎️  El APK se descargará desde tu servidor de distribución.\n\nReemplaza esta línea con el enlace real al archivo APK en tu función trackDownload().');
+  const link = document.createElement('a');
+  link.href = 'app-release.apk';
+  link.download = 'F1Social.apk';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
 
 /* ============================================================
