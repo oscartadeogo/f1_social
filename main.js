@@ -42,7 +42,7 @@ if (dlCountEl) {
   const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
-        animateCount(dlCountEl, 0, 1247, 1500);
+        animateCount(dlCountEl, 0, 11, 1500);
         counterObserver.unobserve(e.target);
       }
     });
