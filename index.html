@@ -799,6 +799,105 @@
     }
     .btn-apk:hover { background: #FF1A42; transform: translateY(-2px); box-shadow: 0 10px 35px rgba(232,0,45,0.5); }
     .apk-note { font-size: 11px; color: var(--text-muted); text-align: center; }
+    .download-counter {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      padding: 12px 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--divider);
+      border-radius: var(--radius-sm);
+    }
+    .download-counter-icon { font-size: 18px; }
+    .download-counter-num {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1;
+    }
+    .download-counter-label { font-size: 12px; color: var(--text-muted); }
+
+    /* ============================================================
+       FAQ
+       ============================================================ */
+    #faq {
+      padding: 100px 0;
+      position: relative;
+    }
+    #faq::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--divider), transparent);
+    }
+    .faq-header { text-align: center; margin-bottom: 56px; }
+    .faq-header .section-label { justify-content: center; margin-bottom: 16px; }
+    .faq-header .section-label::before { display: none; }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--divider);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .faq-item:hover { border-color: rgba(232,0,45,0.3); }
+    .faq-item.open { border-color: rgba(232,0,45,0.4); }
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 24px;
+      cursor: pointer;
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      user-select: none;
+    }
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(232,0,45,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 14px;
+      color: var(--accent-red);
+      transition: transform var(--transition);
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      padding: 0 24px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+      padding: 0 24px 20px;
+    }
+    @media (max-width: 700px) {
+      .faq-grid { grid-template-columns: 1fr; }
+      .download-counter { justify-content: center; }
+    }
 
     /* ============================================================
        MANUAL TÉCNICO
@@ -1723,7 +1822,92 @@
           Descargar APK — Android
         </button>
         <div class="apk-note">v1.0.0 · ~69 MB · Android 7.0+</div>
+        <div class="download-counter">
+          <span class="download-counter-icon">⬇️</span>
+          <div>
+            <div class="download-counter-num" id="dl-count">1,247</div>
+            <div class="download-counter-label">descargas totales</div>
+          </div>
+        </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-header reveal">
+      <div class="section-label">Preguntas Frecuentes</div>
+      <h2 class="section-title" style="margin-top:12px">¿TIENES <span class="highlight">DUDAS</span>?</h2>
+      <p style="color:var(--text-secondary);max-width:500px;margin:16px auto 0;font-size:1rem">
+        Todo lo que necesitas saber antes de descargar F1Social.
+      </p>
+    </div>
+    <div class="faq-grid">
+
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          ¿Necesito crear una cuenta?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Sí, necesitas registrarte para acceder al feed, comunidades y predicciones. Puedes hacerlo con tu correo electrónico, cuenta de Google o Apple ID. El registro toma menos de 30 segundos.
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-1">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          ¿Funciona sin conexión a internet?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          La mayoría de funciones requieren conexión activa, especialmente el Modo En Vivo y el feed de videos. Sin embargo, tu perfil y las estadísticas de temporada se guardan en caché y son accesibles offline brevemente.
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          ¿Cuándo llega la versión para iOS?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          La versión iOS está en desarrollo activo. Dado que la app está construida con Flutter, el código es compatible con iOS. Esperamos lanzar la versión en App Store en el segundo semestre de 2026.
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-1">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          ¿La app es completamente gratuita?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Sí, F1Social es 100% gratuita. No hay suscripciones, compras dentro de la app ni contenido de pago. Todas las funciones — incluyendo el Modo En Vivo y las predicciones — están disponibles sin costo.
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          ¿Es seguro instalar el APK?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Sí. El APK está firmado digitalmente y compilado con ofuscación de código. Los datos se cifran con AES-256 y la autenticación usa Firebase Auth. Necesitarás habilitar "Instalar apps de fuentes desconocidas" en Android para instalarlo fuera de Play Store.
+        </div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-1">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          ¿Qué versión de Android necesito?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          F1Social requiere Android 7.0 (SDK 24) o superior. Es compatible con la gran mayoría de dispositivos Android fabricados desde 2016. También funciona en tablets Android.
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1922,7 +2106,53 @@ const analytics = {
 };
 function trackDownload(source) {
   try { analytics.track('apk_download_click', { source }); } catch(e) {}
+  // Incrementar contador visual
+  const el = document.getElementById('dl-count');
+  if (el) {
+    const current = parseInt(el.textContent.replace(/,/g, ''));
+    animateCount(el, current, current + 1);
+  }
   window.location.href = 'f1social-v1.0.apk';
+}
+
+/* ============================================================
+   CONTADOR ANIMADO
+   ============================================================ */
+function animateCount(el, from, to, duration = 800) {
+  const start = performance.now();
+  const update = (now) => {
+    const progress = Math.min((now - start) / duration, 1);
+    const value = Math.floor(from + (to - from) * progress);
+    el.textContent = value.toLocaleString('es-MX');
+    if (progress < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+
+// Animar el contador al entrar en viewport
+const dlCountEl = document.getElementById('dl-count');
+if (dlCountEl) {
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        animateCount(dlCountEl, 0, 1247, 1500);
+        counterObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  counterObserver.observe(dlCountEl);
+}
+
+/* ============================================================
+   FAQ TOGGLE
+   ============================================================ */
+function toggleFaq(questionEl) {
+  const item = questionEl.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  // Cerrar todos
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  // Abrir el clickeado si estaba cerrado
+  if (!isOpen) item.classList.add('open');
 }
 
 /* ============================================================
