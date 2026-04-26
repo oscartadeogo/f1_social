@@ -193,38 +193,78 @@
      ============================================================ -->
 <section id="description">
   <div class="container">
-    <div class="desc-grid">
-      <!-- Left: pitch -->
-      <div class="desc-left reveal">
-        <div class="section-label">La Aplicación</div>
-        <h2 class="section-title">
-          VIVE LA F1<br>
-          COMO <span class="highlight">NUNCA</span><br>
-          ANTES
-        </h2>
-        <p class="desc-intro">
-          <strong>F1Social</strong> no es solo otra red social. Es el primer espacio digital construido
-          <em>desde cero</em> para el fanático de la Fórmula 1: datos de telemetría en tiempo real,
-          comunidades exclusivas por escudería, videos cortos al estilo TikTok y un sistema de ligas
-          que premia tu conocimiento.
-        </p>
-        <div class="desc-highlight-box">
-          <p>
-            <strong>¿Por qué deberías descargarla?</strong> Porque en Twitter/X o Instagram
-            el contenido de F1 se pierde entre miles de publicaciones irrelevantes.
-            Aquí, cada interacción, cada video y cada debate gira en torno a lo que realmente te importa:
-            la parrilla, los boxes, las batallas en pista.
-          </p>
-        </div>
 
+    <!-- Encabezado centrado -->
+    <div style="text-align:center;margin-bottom:64px;" class="reveal">
+      <div class="section-label" style="justify-content:center;margin-bottom:16px;">La Aplicación</div>
+      <h2 class="section-title">VIVE LA F1 COMO <span class="highlight">NUNCA ANTES</span></h2>
+      <p style="color:var(--text-secondary);max-width:680px;margin:20px auto 0;font-size:1.1rem;line-height:1.8;">
+        <strong style="color:var(--text-primary)">F1Social</strong> no es solo otra red social. Es el primer espacio digital construido <em>desde cero</em> para el fanático de la Fórmula 1: telemetría en tiempo real, comunidades por escudería, videos al estilo TikTok y un sistema de ligas que premia tu conocimiento.
+      </p>
+    </div>
+
+    <!-- Por qué descargarla — banner destacado -->
+    <div class="desc-highlight-box reveal" style="max-width:800px;margin:0 auto 64px;text-align:center;">
+      <p style="font-size:1.05rem;">
+        <strong>¿Por qué descargarla?</strong> En Twitter/X o Instagram el contenido de F1 se pierde entre miles de publicaciones irrelevantes. Aquí, cada interacción, cada video y cada debate gira en torno a lo que realmente te importa: la parrilla, los boxes, las batallas en pista.
+      </p>
+    </div>
+
+    <!-- Features grid 3 columnas -->
+    <div class="features-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:64px;">
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon">🎥</div>
+        <div class="feature-content">
+          <h4>Feed de Videos F1</h4>
+          <p>Scroll vertical estilo TikTok con videos cortos de la comunidad. Likes, comentarios y compartición nativa. Moderación automática con Google Vision.</p>
+        </div>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon">🔴</div>
+        <div class="feature-content">
+          <h4>Modo En Vivo</h4>
+          <p>Mapa 2D de posiciones en pista, telemetría del coche, radio de equipo, mensajes de dirección de carrera y condiciones meteorológicas en tiempo real vía OpenF1.</p>
+        </div>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon">🏎️</div>
+        <div class="feature-content">
+          <h4>Comunidades por Escudería</h4>
+          <p>11 comunidades exclusivas — una por cada equipo. Posts de pilotos verificados, hilos de fans y debates. Roles diferenciados con badges de verificación.</p>
+        </div>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon">📊</div>
+        <div class="feature-content">
+          <h4>Estadísticas de Temporada</h4>
+          <p>Clasificaciones de pilotos y constructores, calendario de GPs, gráficas de evolución de puntos y comparador de pilotos con fl_chart.</p>
+        </div>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon">🎯</div>
+        <div class="feature-content">
+          <h4>Predicciones de Carrera</h4>
+          <p>Predice ganador, pole, safety car, vuelta rápida y abandonos antes de cada GP. Gana hasta +260 XP por ronda. Resultados revelados con animación.</p>
+        </div>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon">🏆</div>
+        <div class="feature-content">
+          <h4>Ligas de Fans XP</h4>
+          <p>7 niveles: de Rookie a Champion. Tabla de clasificación semanal y global. XP por likes, comentarios, publicaciones y predicciones correctas.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reseñas + Compatibilidad -->
+    <div class="desc-grid">
+      <!-- Reseñas -->
+      <div class="reveal">
+        <div class="section-label" style="margin-bottom:20px;">Lo que dicen los fans</div>
         <div class="testimonials">
           <div class="testimonial">
             <div class="stars">★★★★★</div>
-            <p class="testimonial-text">
-              "Finalmente una app donde puedo ver los tiempos de vuelta en tiempo real
-              y chatear con otros fans mientras corre la carrera. El mapa de posiciones
-              en vivo es impresionante."
-            </p>
+            <p class="testimonial-text">"Finalmente una app donde puedo ver los tiempos de vuelta en tiempo real y chatear con otros fans mientras corre la carrera. El mapa de posiciones en vivo es impresionante."</p>
             <div class="testimonial-author">
               <div class="testimonial-avatar">CR</div>
               <div>
@@ -235,11 +275,7 @@
           </div>
           <div class="testimonial">
             <div class="stars">★★★★★</div>
-            <p class="testimonial-text">
-              "Las predicciones de carrera son adictivas. Gané 350 XP acertando ganador,
-              pole y vuelta rápida en el GP de Mónaco. La competencia en la tabla semanal
-              me tiene enganchado."
-            </p>
+            <p class="testimonial-text">"Las predicciones de carrera son adictivas. Gané 350 XP acertando ganador, pole y vuelta rápida en el GP de Mónaco. La competencia en la tabla semanal me tiene enganchado."</p>
             <div class="testimonial-author">
               <div class="testimonial-avatar">MV</div>
               <div>
@@ -249,70 +285,45 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Compatibility -->
+      <!-- Compatibilidad y seguridad -->
+      <div class="reveal reveal-delay-1">
+        <div class="section-label" style="margin-bottom:20px;">Compatibilidad & Seguridad</div>
         <div class="compatibility-bar">
-          <div class="compatibility-title">Compatibilidad de dispositivos</div>
+          <div class="compatibility-title">Dispositivos compatibles</div>
           <div class="compat-items">
             <div class="compat-item"><span class="compat-dot"></span>Android 7.0+ (SDK 24)</div>
             <div class="compat-item"><span class="compat-dot"></span>iOS 13+</div>
             <div class="compat-item"><span class="compat-dot"></span>Tablets Android</div>
           </div>
         </div>
-        <div class="security-strip">
+        <div class="security-strip" style="margin-top:16px;">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           <span><strong>Datos cifrados con AES-256</strong> · Autenticación Firebase · Moderación automática de contenido</span>
         </div>
-      </div>
-
-      <!-- Right: features -->
-      <div class="desc-right">
-        <div class="features-grid">
-          <div class="feature-card reveal reveal-delay-1">
-            <div class="feature-icon">🎥</div>
-            <div class="feature-content">
-              <h4>Feed de Videos F1</h4>
-              <p>Scroll vertical estilo TikTok con videos cortos de la comunidad. Likes, comentarios y compartición nativa. Moderación automática con Google Vision.</p>
-            </div>
+        <!-- Mini stats -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;">
+          <div class="info-card" style="background:var(--bg-card);border:1px solid var(--divider);border-radius:var(--radius-sm);padding:16px;">
+            <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:4px;">Funciones Core</div>
+            <div style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--accent-red);">7<span style="font-size:1rem;color:var(--text-muted)">+</span></div>
           </div>
-          <div class="feature-card reveal reveal-delay-2">
-            <div class="feature-icon">🔴</div>
-            <div class="feature-content">
-              <h4>Modo En Vivo</h4>
-              <p>Mapa 2D de posiciones en pista, telemetría del coche, radio de equipo, mensajes de dirección de carrera y condiciones meteorológicas en tiempo real vía OpenF1.</p>
-            </div>
+          <div class="info-card" style="background:var(--bg-card);border:1px solid var(--divider);border-radius:var(--radius-sm);padding:16px;">
+            <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:4px;">Comunidades</div>
+            <div style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--accent-red);">11<span style="font-size:1rem;color:var(--text-muted)">✦</span></div>
           </div>
-          <div class="feature-card reveal reveal-delay-1">
-            <div class="feature-icon">🏎️</div>
-            <div class="feature-content">
-              <h4>Comunidades por Escudería</h4>
-              <p>11 comunidades exclusivas — una por cada equipo. Posts de pilotos verificados, hilos de fans y debates. Roles diferenciados con badges de verificación.</p>
-            </div>
+          <div class="info-card" style="background:var(--bg-card);border:1px solid var(--divider);border-radius:var(--radius-sm);padding:16px;">
+            <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:4px;">Rendimiento</div>
+            <div style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--accent-red);">60<span style="font-size:1rem;color:var(--text-muted)">fps</span></div>
           </div>
-          <div class="feature-card reveal reveal-delay-2">
-            <div class="feature-icon">📊</div>
-            <div class="feature-content">
-              <h4>Estadísticas de Temporada</h4>
-              <p>Clasificaciones de pilotos y constructores, calendario de GPs, gráficas de evolución de puntos y comparador de pilotos con fl_chart.</p>
-            </div>
-          </div>
-          <div class="feature-card reveal reveal-delay-1">
-            <div class="feature-icon">🎯</div>
-            <div class="feature-content">
-              <h4>Predicciones de Carrera</h4>
-              <p>Predice ganador, pole, safety car, vuelta rápida y abandonos antes de cada GP. Gana hasta +260 XP por ronda. Resultados revelados con animación.</p>
-            </div>
-          </div>
-          <div class="feature-card reveal reveal-delay-2">
-            <div class="feature-icon">🏆</div>
-            <div class="feature-content">
-              <h4>Ligas de Fans XP</h4>
-              <p>7 niveles: de Rookie a Champion. Tabla de clasificación semanal y global. XP por likes, comentarios, publicaciones y predicciones correctas.</p>
-            </div>
+          <div class="info-card" style="background:var(--bg-card);border:1px solid var(--divider);border-radius:var(--radius-sm);padding:16px;">
+            <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:4px;">Tamaño APK</div>
+            <div style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--accent-red);">~69<span style="font-size:1rem;color:var(--text-muted)">MB</span></div>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
