@@ -1165,9 +1165,9 @@
     .pd-node:hover { transform: translateY(-4px); }
     .pd-node:hover .pd-phone { border-color: var(--accent-red); box-shadow: 0 8px 24px rgba(232,0,45,0.3); }
     .pd-phone {
-      width: 72px;
+      width: 100px;
       aspect-ratio: 9/19;
-      border-radius: 12px;
+      border-radius: 16px;
       border: 2px solid var(--divider);
       overflow: hidden;
       background: var(--bg-surface);
@@ -1193,10 +1193,10 @@
       border-radius: 3px;
     }
     .pd-label {
-      font-size: 10px;
+      font-size: 11px;
       color: var(--text-muted);
       text-align: center;
-      max-width: 72px;
+      max-width: 100px;
       line-height: 1.3;
     }
     .pd-node-success .pd-phone { border-color: rgba(76,175,80,0.5); }
@@ -1283,7 +1283,7 @@
     }
     @media (max-width: 900px) {
       .pd-modules { grid-template-columns: 1fr; }
-      .pd-phone { width: 56px; }
+      .pd-phone { width: 72px; }
     }
 
     /* ============================================================
@@ -2314,82 +2314,58 @@
 
     <!-- Tabs -->
     <div class="gallery-tabs">
-      <button class="gallery-tab active" onclick="switchTab('onboarding', this)">🚀 Onboarding</button>
-      <button class="gallery-tab" onclick="switchTab('feed', this)">📱 Feed & Contenido</button>
-      <button class="gallery-tab" onclick="switchTab('comunidades', this)">🏎️ Comunidades</button>
-      <button class="gallery-tab" onclick="switchTab('estadisticas', this)">📊 Estadísticas</button>
-      <button class="gallery-tab" onclick="switchTab('perfil', this)">👤 Perfil & Admin</button>
+      <button class="gallery-tab active" onclick="switchTab('onboarding', this)">Onboarding</button>
+      <button class="gallery-tab" onclick="switchTab('feed', this)">Feed y Contenido</button>
+      <button class="gallery-tab" onclick="switchTab('comunidades', this)">Comunidades</button>
+      <button class="gallery-tab" onclick="switchTab('estadisticas', this)">Estadisticas</button>
     </div>
 
-    <!-- Onboarding: 1–14 -->
+    <!-- Onboarding: pantallas clave -->
     <div class="gallery-group active" id="tab-onboarding">
-      <div class="gallery-group-title">Pantallas 1–14 · Onboarding & Registro</div>
+      <div class="gallery-group-title">Primeros pasos · Registro y Personalizacion</div>
       <div class="gallery-grid">
-        <div class="gallery-card" onclick="openLightbox(1)"><div class="gallery-phone"><span class="gallery-num">01</span><img src="cap/1.png" alt="Splash F1Social" loading="lazy"/></div><div class="gallery-label">Splash Screen</div></div>
-        <div class="gallery-card" onclick="openLightbox(2)"><div class="gallery-phone"><span class="gallery-num">02</span><img src="cap/2.png" alt="Coche acercándose" loading="lazy"/></div><div class="gallery-label">Animación de entrada</div></div>
-        <div class="gallery-card" onclick="openLightbox(3)"><div class="gallery-phone"><span class="gallery-num">03</span><img src="cap/3.png" alt="Welcome screen" loading="lazy"/></div><div class="gallery-label">Welcome Screen</div></div>
-        <div class="gallery-card" onclick="openLightbox(4)"><div class="gallery-phone"><span class="gallery-num">04</span><img src="cap/4.png" alt="Login" loading="lazy"/></div><div class="gallery-label">Iniciar Sesión</div></div>
-        <div class="gallery-card" onclick="openLightbox(5)"><div class="gallery-phone"><span class="gallery-num">05</span><img src="cap/5.png" alt="Registro" loading="lazy"/></div><div class="gallery-label">Crear Cuenta</div></div>
-        <div class="gallery-card" onclick="openLightbox(6)"><div class="gallery-phone"><span class="gallery-num">06</span><img src="cap/6.png" alt="Términos" loading="lazy"/></div><div class="gallery-label">Términos & Privacidad</div></div>
+        <div class="gallery-card" onclick="openLightbox(1)"><div class="gallery-phone"><span class="gallery-num">01</span><img src="cap/1.png" alt="Splash" loading="lazy"/></div><div class="gallery-label">Splash Screen</div></div>
+        <div class="gallery-card" onclick="openLightbox(3)"><div class="gallery-phone"><span class="gallery-num">03</span><img src="cap/3.png" alt="Welcome" loading="lazy"/></div><div class="gallery-label">Welcome Screen</div></div>
         <div class="gallery-card" onclick="openLightbox(7)"><div class="gallery-phone"><span class="gallery-num">07</span><img src="cap/7.png" alt="Perfil" loading="lazy"/></div><div class="gallery-label">Tu Perfil</div></div>
-        <div class="gallery-card" onclick="openLightbox(8)"><div class="gallery-phone"><span class="gallery-num">08</span><img src="cap/8.png" alt="Piloto favorito" loading="lazy"/></div><div class="gallery-label">Elige tu Piloto</div></div>
-        <div class="gallery-card" onclick="openLightbox(9)"><div class="gallery-phone"><span class="gallery-num">09</span><img src="cap/9.png" alt="Escudería" loading="lazy"/></div><div class="gallery-label">Elige tu Escudería</div></div>
-        <div class="gallery-card" onclick="openLightbox(10)"><div class="gallery-phone"><span class="gallery-num">10</span><img src="cap/10.png" alt="Circuito favorito" loading="lazy"/></div><div class="gallery-label">Circuito Favorito</div></div>
-        <div class="gallery-card" onclick="openLightbox(11)"><div class="gallery-phone"><span class="gallery-num">11</span><img src="cap/11.png" alt="Contenido" loading="lazy"/></div><div class="gallery-label">Tipo de Contenido</div></div>
-        <div class="gallery-card" onclick="openLightbox(12)"><div class="gallery-phone"><span class="gallery-num">12</span><img src="cap/12.png" alt="Era F1" loading="lazy"/></div><div class="gallery-label">Tu Era F1</div></div>
-        <div class="gallery-card" onclick="openLightbox(13)"><div class="gallery-phone"><span class="gallery-num">13</span><img src="cap/13.png" alt="Notificaciones" loading="lazy"/></div><div class="gallery-label">Notificaciones</div></div>
-        <div class="gallery-card" onclick="openLightbox(14)"><div class="gallery-phone"><span class="gallery-num">14</span><img src="cap/14.png" alt="Registro completo" loading="lazy"/></div><div class="gallery-label">¡Registro Completo!</div></div>
+        <div class="gallery-card" onclick="openLightbox(8)"><div class="gallery-phone"><span class="gallery-num">08</span><img src="cap/8.png" alt="Piloto" loading="lazy"/></div><div class="gallery-label">Elige tu Piloto</div></div>
+        <div class="gallery-card" onclick="openLightbox(9)"><div class="gallery-phone"><span class="gallery-num">09</span><img src="cap/9.png" alt="Escuderia" loading="lazy"/></div><div class="gallery-label">Elige tu Escuderia</div></div>
+        <div class="gallery-card" onclick="openLightbox(14)"><div class="gallery-phone"><span class="gallery-num">14</span><img src="cap/14.png" alt="Listo" loading="lazy"/></div><div class="gallery-label">Registro Completo</div></div>
       </div>
     </div>
 
-    <!-- Feed: 15–17 -->
+    <!-- Feed -->
     <div class="gallery-group" id="tab-feed">
-      <div class="gallery-group-title">Pantallas 15–17 · Feed & Publicaciones</div>
+      <div class="gallery-group-title">Feed de videos · Publicaciones</div>
       <div class="gallery-grid">
         <div class="gallery-card" onclick="openLightbox(15)"><div class="gallery-phone"><span class="gallery-num">15</span><img src="cap/15.png" alt="Feed" loading="lazy"/></div><div class="gallery-label">Feed Principal</div></div>
-        <div class="gallery-card" onclick="openLightbox(16)"><div class="gallery-phone"><span class="gallery-num">16</span><img src="cap/16.png" alt="Cámara" loading="lazy"/></div><div class="gallery-label">Subir Video / Foto</div></div>
-        <div class="gallery-card" onclick="openLightbox(17)"><div class="gallery-phone"><span class="gallery-num">17</span><img src="cap/17.png" alt="Publicación" loading="lazy"/></div><div class="gallery-label">Nueva Publicación</div></div>
+        <div class="gallery-card" onclick="openLightbox(16)"><div class="gallery-phone"><span class="gallery-num">16</span><img src="cap/16.png" alt="Camara" loading="lazy"/></div><div class="gallery-label">Subir Video / Foto</div></div>
+        <div class="gallery-card" onclick="openLightbox(17)"><div class="gallery-phone"><span class="gallery-num">17</span><img src="cap/17.png" alt="Publicacion" loading="lazy"/></div><div class="gallery-label">Nueva Publicacion</div></div>
       </div>
     </div>
 
-    <!-- Comunidades: 18–23 -->
+    <!-- Comunidades -->
     <div class="gallery-group" id="tab-comunidades">
-      <div class="gallery-group-title">Pantallas 18–23 · Comunidades</div>
+      <div class="gallery-group-title">Comunidades por escuderia · Ligas</div>
       <div class="gallery-grid">
-        <div class="gallery-card" onclick="openLightbox(18)"><div class="gallery-phone"><span class="gallery-num">18</span><img src="cap/18.png" alt="Comunidades equipos" loading="lazy"/></div><div class="gallery-label">Equipos</div></div>
-        <div class="gallery-card" onclick="openLightbox(19)"><div class="gallery-phone"><span class="gallery-num">19</span><img src="cap/19.png" alt="Pilotos" loading="lazy"/></div><div class="gallery-label">Sección Pilotos</div></div>
-        <div class="gallery-card" onclick="openLightbox(20)"><div class="gallery-phone"><span class="gallery-num">20</span><img src="cap/20.png" alt="Fans" loading="lazy"/></div><div class="gallery-label">Sección Fans</div></div>
+        <div class="gallery-card" onclick="openLightbox(18)"><div class="gallery-phone"><span class="gallery-num">18</span><img src="cap/18.png" alt="Equipos" loading="lazy"/></div><div class="gallery-label">Equipos</div></div>
+        <div class="gallery-card" onclick="openLightbox(19)"><div class="gallery-phone"><span class="gallery-num">19</span><img src="cap/19.png" alt="Pilotos" loading="lazy"/></div><div class="gallery-label">Seccion Pilotos</div></div>
+        <div class="gallery-card" onclick="openLightbox(20)"><div class="gallery-phone"><span class="gallery-num">20</span><img src="cap/20.png" alt="Fans" loading="lazy"/></div><div class="gallery-label">Seccion Fans</div></div>
         <div class="gallery-card" onclick="openLightbox(21)"><div class="gallery-phone"><span class="gallery-num">21</span><img src="cap/21.png" alt="Trivia" loading="lazy"/></div><div class="gallery-label">Trivia del Equipo</div></div>
         <div class="gallery-card" onclick="openLightbox(22)"><div class="gallery-phone"><span class="gallery-num">22</span><img src="cap/22.png" alt="Novedades" loading="lazy"/></div><div class="gallery-label">Novedades</div></div>
-        <div class="gallery-card" onclick="openLightbox(23)"><div class="gallery-phone"><span class="gallery-num">23</span><img src="cap/23.png" alt="Ligas" loading="lazy"/></div><div class="gallery-label">Ligas</div></div>
+        <div class="gallery-card" onclick="openLightbox(23)"><div class="gallery-phone"><span class="gallery-num">23</span><img src="cap/23.png" alt="Ligas" loading="lazy"/></div><div class="gallery-label">Ligas XP</div></div>
       </div>
     </div>
 
-    <!-- Estadísticas: 24–30 -->
+    <!-- Estadisticas -->
     <div class="gallery-group" id="tab-estadisticas">
-      <div class="gallery-group-title">Pantallas 24–30 · Estadísticas F1</div>
+      <div class="gallery-group-title">Estadisticas F1 · Analisis en vivo</div>
       <div class="gallery-grid">
-        <div class="gallery-card" onclick="openLightbox(24)"><div class="gallery-phone"><span class="gallery-num">24</span><img src="cap/24.png" alt="Pilotos stats" loading="lazy"/></div><div class="gallery-label">Pilotos</div></div>
-        <div class="gallery-card" onclick="openLightbox(25)"><div class="gallery-phone"><span class="gallery-num">25</span><img src="cap/25.png" alt="Piloto detalle" loading="lazy"/></div><div class="gallery-label">Detalle Piloto</div></div>
-        <div class="gallery-card" onclick="openLightbox(26)"><div class="gallery-phone"><span class="gallery-num">26</span><img src="cap/26.png" alt="Constructores" loading="lazy"/></div><div class="gallery-label">Constructores</div></div>
+        <div class="gallery-card" onclick="openLightbox(24)"><div class="gallery-phone"><span class="gallery-num">24</span><img src="cap/24.png" alt="Pilotos" loading="lazy"/></div><div class="gallery-label">Pilotos</div></div>
+        <div class="gallery-card" onclick="openLightbox(25)"><div class="gallery-phone"><span class="gallery-num">25</span><img src="cap/25.png" alt="Detalle" loading="lazy"/></div><div class="gallery-label">Detalle Piloto</div></div>
         <div class="gallery-card" onclick="openLightbox(27)"><div class="gallery-phone"><span class="gallery-num">27</span><img src="cap/27.png" alt="Calendario" loading="lazy"/></div><div class="gallery-label">Calendario</div></div>
-        <div class="gallery-card" onclick="openLightbox(28)"><div class="gallery-phone"><span class="gallery-num">28</span><img src="cap/28.png" alt="Resultado carrera" loading="lazy"/></div><div class="gallery-label">Resultado Carrera</div></div>
-        <div class="gallery-card" onclick="openLightbox(29)"><div class="gallery-phone"><span class="gallery-num">29</span><img src="cap/29.png" alt="Gráfica puntos" loading="lazy"/></div><div class="gallery-label">Gráfica de Puntos</div></div>
+        <div class="gallery-card" onclick="openLightbox(28)"><div class="gallery-phone"><span class="gallery-num">28</span><img src="cap/28.png" alt="Resultado" loading="lazy"/></div><div class="gallery-label">Resultado Carrera</div></div>
+        <div class="gallery-card" onclick="openLightbox(29)"><div class="gallery-phone"><span class="gallery-num">29</span><img src="cap/29.png" alt="Grafica" loading="lazy"/></div><div class="gallery-label">Grafica de Puntos</div></div>
         <div class="gallery-card" onclick="openLightbox(30)"><div class="gallery-phone"><span class="gallery-num">30</span><img src="cap/30.png" alt="Comparador" loading="lazy"/></div><div class="gallery-label">Comparador</div></div>
-      </div>
-    </div>
-
-    <!-- Perfil & Admin: 31–37 -->
-    <div class="gallery-group" id="tab-perfil">
-      <div class="gallery-group-title">Pantallas 31–37 · Perfil & Panel Admin</div>
-      <div class="gallery-grid">
-        <div class="gallery-card" onclick="openLightbox(31)"><div class="gallery-phone"><span class="gallery-num">31</span><img src="cap/31.png" alt="Perfil" loading="lazy"/></div><div class="gallery-label">Mi Perfil</div></div>
-        <div class="gallery-card" onclick="openLightbox(32)"><div class="gallery-phone"><span class="gallery-num">32</span><img src="cap/32.png" alt="Editar perfil" loading="lazy"/></div><div class="gallery-label">Editar Perfil</div></div>
-        <div class="gallery-card" onclick="openLightbox(33)"><div class="gallery-phone"><span class="gallery-num">33</span><img src="cap/33.png" alt="Configuración" loading="lazy"/></div><div class="gallery-label">Configuración</div></div>
-        <div class="gallery-card" onclick="openLightbox(34)"><div class="gallery-phone"><span class="gallery-num">34</span><img src="cap/34.png" alt="Admin dashboard" loading="lazy"/></div><div class="gallery-label">Admin Dashboard</div></div>
-        <div class="gallery-card" onclick="openLightbox(35)"><div class="gallery-phone"><span class="gallery-num">35</span><img src="cap/35.png" alt="Admin pendientes" loading="lazy"/></div><div class="gallery-label">Admin Pendientes</div></div>
-        <div class="gallery-card" onclick="openLightbox(36)"><div class="gallery-phone"><span class="gallery-num">36</span><img src="cap/36.png" alt="Admin usuarios" loading="lazy"/></div><div class="gallery-label">Admin Usuarios</div></div>
-        <div class="gallery-card" onclick="openLightbox(37)"><div class="gallery-phone"><span class="gallery-num">37</span><img src="cap/37.png" alt="Admin contenido" loading="lazy"/></div><div class="gallery-label">Admin Contenido</div></div>
       </div>
     </div>
 
