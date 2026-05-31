@@ -881,6 +881,117 @@ body::before {
 }
 
 /* ============================================================
+   ENTREGA ACADÉMICA
+   ============================================================ */
+#entrega {
+  padding: 100px 0;
+  position: relative;
+}
+#entrega::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--divider), transparent);
+}
+.entrega-header { text-align: center; margin-bottom: 56px; }
+.entrega-header .section-label { justify-content: center; margin-bottom: 16px; }
+.entrega-header .section-label::before { display: none; }
+.entrega-timeline {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.entrega-card {
+  background: var(--bg-card);
+  border: 1px solid var(--divider);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  position: relative;
+  transition: var(--transition);
+}
+.entrega-card:hover { border-color: rgba(232,0,45,0.3); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+.entrega-card.highlight { border-color: rgba(232,0,45,0.35); background: linear-gradient(135deg, rgba(232,0,45,0.06) 0%, var(--bg-card) 100%); }
+.entrega-step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent-red);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+.entrega-card.highlight .entrega-step { background: var(--accent-red); box-shadow: 0 0 20px rgba(232,0,45,0.4); }
+.entrega-when {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-red);
+  margin-bottom: 8px;
+}
+.entrega-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+.entrega-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.entrega-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.entrega-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.entrega-item::before {
+  content: '▸';
+  color: var(--accent-red);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.entrega-note {
+  margin-top: 40px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(255,215,0,0.06);
+  border: 1px solid rgba(255,215,0,0.2);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.entrega-note-icon { font-size: 20px; flex-shrink: 0; }
+@media (max-width: 700px) {
+  .entrega-timeline { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
    GALERÍA DE CAPTURAS
    ============================================================ */
 #gallery {
